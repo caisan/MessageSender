@@ -33,6 +33,7 @@ private:
     void submit_message(Message *m, Connection *con,
                         const entity_addr_t& addr);
 
+		virtual get_connection(const entity_inst_t& dest);
 
 
 };

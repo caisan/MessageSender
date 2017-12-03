@@ -72,7 +72,7 @@ public:
 
     virtual int send_message(Message* m, const entity_inst_t& dest) = 0;
 
-    virtual get_connection(const entity_inst_t& dest)a = 0;
+    virtual get_connection(const entity_inst_t& dest) = 0;
 
 };
 
