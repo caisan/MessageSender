@@ -1,4 +1,6 @@
 #include "Messenger.h"
+#include "Thread.h"
+#include "Pipe.h"
 
 class TinyMsg : public Messenger {
 public:
@@ -33,7 +35,6 @@ private:
     void submit_message(Message *m, Connection *con,
                         const entity_addr_t& addr);
 
-		virtual get_connection(const entity_inst_t& dest);
-
+	virtual Pipe* get_connection(const entity_inst_t& dest);
 
 };

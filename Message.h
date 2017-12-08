@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <boost/intrusive_ptr.hpp>
-
+#include "Pipe.h"
 
 //abstract Connection
 
@@ -13,6 +13,20 @@ class Messenger;
 struct Connection
 {
     Messenger *msgr;
+ public:
+    Pipe *pipe;
+
+ public:
+    Connection(Messenger *m)
+        : msgr(m),
+          pipe(NULL) {}
+
+    ~Connection() {
+        if (pipe)
+            pipe->put();
+    }
+
+
 
 };
 
@@ -32,5 +46,9 @@ public:
         memset(&footer, 0, sizeof(footer));
     }
 
+    unsigned get_priority() const { return header.priority;  }
+
 };
+
+
 
